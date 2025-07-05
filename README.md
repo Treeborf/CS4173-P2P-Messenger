@@ -6,13 +6,12 @@ A secure peer-to-peer messaging application featuring manual decryption with use
 
 ## 🛠 Features
 
-- ✅ Encrypted messaging using **AES-128** or **DES-56**
-- 🔑 Users enter a shared password to derive encryption keys securely
-- 🔒 Messages are transmitted in encrypted form only
-- 🧠 Decryption is manual — users must input the correct password and key mode to unlock messages
-- 🧰 Key derivation using **PBKDF2** with a random salt per message
-- 📦 Uses **PKCS7 padding** for both AES and DES block sizes
-- 🧪 Robust against mode mismatches and incorrect passwords (fails gracefully)
+- Encrypted messaging using **AES-128** or **DES-56**
+- Users enter a shared password to derive encryption keys securely
+- Messages are transmitted in encrypted form only
+- Decryption is manual — users must input the correct password and key mode to unlock messages
+- Key derivation using **PBKDF2** with a random salt per message
+- Uses **PKCS7 padding** for both AES and DES block sizes
 
 ---
 ## 🚀 Setup Instructions
@@ -57,6 +56,16 @@ python alice_client_gui.py
 - Type your message and click **Send**.
 - The encrypted ciphertext will appear in both GUIs.
 - To decrypt, input the correct password, choose the correct cipher, and click **Decrypt Last Message**.
+
+---
+
+## ❓FAQ
+
+### ❌ What happens if Alice and Bob use different passwords?
+The message cannot be decrypted — the app displays a decryption error.
+
+### ❌ What if Alice uses AES and Bob selects DES?
+Decryption fails with a "mode mismatch" warning. The encryption algorithm is embedded in the message metadata.
 
 ---
 ## 🧑‍💻 Author
