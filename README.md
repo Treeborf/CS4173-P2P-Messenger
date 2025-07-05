@@ -1,6 +1,6 @@
 # 🔐 Encrypted P2P Chat – Alice & Bob
 
-A secure peer-to-peer messaging application featuring manual decryption with user-supplied passwords and selectable encryption strength (AES-128 or DES-56). Built with Python and PyQt6, this GUI-based app enables encrypted communication between two clients without transmitting raw plaintext.
+A secure peer-to-peer messaging application featuring manual decryption with shared user passphrases and changeable key lengths (AES-128 or DES-56). Built with Python and PyQt6, this GUI-based app enables encrypted communication between two clients without transmitting raw plaintext.
 
 ---
 
