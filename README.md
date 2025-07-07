@@ -23,11 +23,12 @@ A secure peer-to-peer messaging application featuring manual decryption with sha
   - `PyQt6`
   - `cryptography`
   - `pycryptodome`
+  - `pyaudio`
 
 ### Install Dependencies
 
 ```bash
-pip install PyQt6 cryptography pycryptodome
+pip install PyQt6 cryptography pycryptodome pyaudio
 ```
 
 ---
