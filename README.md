@@ -1,17 +1,29 @@
 # 🔐 Encrypted P2P Chat – Alice & Bob
 
-A secure peer-to-peer messaging application featuring manual decryption with shared user passphrases and changeable key lengths (AES-128 or DES-56). Built with Python and PyQt6, this GUI-based app enables encrypted communication between two clients without transmitting raw plaintext.
+A secure peer-to-peer messaging application featuring **manual decryption** with shared passphrases and choice of encryption strength (AES-128 or DES-56). Built with Python and PyQt6, this GUI-based app showcases encrypted communication between a client and a server without transmitting raw plaintext.
 
 ---
 
 ## 🛠 Features
 
-- Encrypted messaging using **AES-128** or **DES-56**
-- Users enter a shared password to derive encryption keys securely
-- Messages are transmitted in encrypted form only
-- Decryption is manual — users must input the correct password and key mode to unlock messages
-- Key derivation using **PBKDF2** with a random salt per message
-- Uses **PKCS7 padding** for both AES and DES block sizes
+- **Dual Encryption Support**:
+  - **AES-128** (recommended for security)
+  - **DES-56** (for compatibility/testing)
+- **Multi-Content Support**:
+  - Encrypted text messaging
+  - Secure file transfers
+  - Voice message transmission (.wav)
+  - Image sharing with in-app viewing
+- **Security Features**:
+  - Manual decryption with shared passphrase
+  - Per-message random salt generation
+  - PBKDF2 key derivation (100,000 iterations)
+  - Mode verification to prevent cipher mismatch
+- **User Experience**:
+  - In-app media playback for voice messages
+  - Image preview with save option
+  - Visual indicators for different content types
+  - Automatic file saving dialog
 
 ---
 ## 🚀 Setup Instructions
@@ -23,12 +35,11 @@ A secure peer-to-peer messaging application featuring manual decryption with sha
   - `PyQt6`
   - `cryptography`
   - `pycryptodome`
-  - `pyaudio`
 
 ### Install Dependencies
 
 ```bash
-pip install PyQt6 cryptography pycryptodome pyaudio
+pip install PyQt6 cryptography pycryptodome 
 ```
 
 ---
@@ -40,8 +51,8 @@ pip install PyQt6 cryptography pycryptodome pyaudio
 python bob_server_gui.py
 ```
 
-- Bob listens on port 9000.
-- Choose encryption type (AES or DES) and input the shared password.
+- Bob listens on port 9000
+- Choose encryption type (AES or DES) and input the shared password
 
 ### 2. Run Alice (client)
 
@@ -49,15 +60,23 @@ python bob_server_gui.py
 python alice_client_gui.py
 ```
 
-- Connects to Bob on localhost:9000.
-- Use the same password and encryption type to communicate successfully.
+- Connects to Bob on localhost:9000
+- Use the same password and encryption type to communicate successfully
 
-### 3. Send & Receive Messages
+### 3. Establish a Secure Connection
 
-- Type your message and click **Send**.
-- The encrypted ciphertext will appear in both GUIs.
-- To decrypt, input the correct password, choose the correct cipher, and click **Decrypt Last Message**.
+- Both parties enter shared passphrase
+- Select a matching encryption mode (either AES or DES)
+- Confirm Connection status in the chat window
 
+### 4. Sending Messages
+
+- Choose content type from dropdown:
+  - Text: Type message --> "Send to (Bob/Alice)"
+  - File: Select any file 
+  - Voice: Choose any .wav file
+  - Image: Select any image (.png, .jpeg, etc.)
+- Recipient clicks **Decrypt** to view/save content
 ---
 
 ## ❓FAQ
