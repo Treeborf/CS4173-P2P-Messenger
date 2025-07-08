@@ -72,10 +72,10 @@ python alice_client_gui.py
 ### 4. Sending Messages
 
 - Choose content type from dropdown:
-  - Text: Type message --> "Send to (Bob/Alice)"
-  - File: Select any file 
-  - Voice: Choose any .wav file
-  - Image: Select any image (.png, .jpeg, etc.)
+  - **Text**: Type message --> "Send to (Bob/Alice)"
+  - **File**: Select any file 
+  - **Voice**: Choose any .wav file
+  - **Image**: Select any image (.png, .jpeg, etc.)
 - Recipient clicks **Decrypt** to view/save content
 ---
 
