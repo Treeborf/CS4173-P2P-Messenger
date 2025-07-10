@@ -151,7 +151,7 @@ class AliceClient(QMainWindow):
         # Send encrypted payload
         json_to_send = json.dumps(payload)
         self.client_socket.send(json_to_send.encode())
-        self.received_box.append(f"📎 File sent: {filename}")
+        self.received_box.append(f"File sent: {filename}")
 
     # Function for sending encrypted voice files
     def send_voice(self):\
@@ -202,7 +202,7 @@ class AliceClient(QMainWindow):
         # Send the encrypted payload (JSON)
         json_to_send = json.dumps(payload)
         self.client_socket.send(json_to_send.encode()) 
-        self.received_box.append(f"🖼️ Picture sent: {filename}")
+        self.received_box.append(f"Picture sent: {filename}")
 
     # Function for recieving data
     def receive_data(self):
@@ -233,11 +233,11 @@ class AliceClient(QMainWindow):
                         if msg_type == "text":
                             self.received_box.append(f"Encrypted: {actualCipher}")
                         elif msg_type == "file":
-                            self.received_box.append(f"📥 Encrypted file received: {actualCipher} (click 'Decrypt' to access)")
+                            self.received_box.append(f"Encrypted file received: {actualCipher} (click 'Decrypt' to access)")
                         elif msg_type == "voice":
-                            self.received_box.append(f"🎤 Encrypted voice file received: {actualCipher} (click 'Decrypt' to play)")
+                            self.received_box.append(f"Encrypted voice file received: {actualCipher} (click 'Decrypt' to play)")
                         elif msg_type == "picture":
-                            self.received_box.append(f"🖼️ Encrypted picture file received: {actualCipher} (click 'Decrypt' to show)")
+                            self.received_box.append(f"Encrypted picture file received: {actualCipher} (click 'Decrypt' to show)")
                         break
                     except (json.JSONDecodeError, UnicodeDecodeError):
                         # Incomplete message, wait for more data
@@ -280,7 +280,7 @@ class AliceClient(QMainWindow):
                 with open(tmp_path, "wb") as f:
                     f.write(decoded)
 
-                self.received_box.append(f"✅ Voice saved to: {tmp_path}")
+                self.received_box.append(f" Voice saved to: {tmp_path}")
 
                 # Set up player and play the decrypted voice message
                 self.audio_output = QAudioOutput()
@@ -291,11 +291,11 @@ class AliceClient(QMainWindow):
 
                 self.received_box.append("🔊 Playing voice message...\n")
             except Exception as e:
-                self.received_box.append(f"❌ Error playing voice message: {str(e)}")
+                self.received_box.append(f"Error playing voice message: {str(e)}")
         elif msg_type == "picture":
             self.display_picture(decrypted, filename) # show the file after decryption
         else:
-            self.received_box.append(f"✅ Decrypted: {decrypted}\n") # display the decrypted message (if text communcation)
+            self.received_box.append(f"Decrypted: {decrypted}\n") # display the decrypted message (if text communcation)
     
     # Function for saving a file from a file transfer
     def try_save_file(self, decrypted_str, filename):
@@ -310,7 +310,7 @@ class AliceClient(QMainWindow):
             if dest:
                 with open(dest, "wb") as f:
                     f.write(decoded_data) # write a new file with the decoded data
-                self.received_box.append(f"✅ File saved: {dest}\n")
+                self.received_box.append(f"File saved: {dest}\n")
         except Exception as e:
             self.received_box.append(f"❌ Error saving file: {str(e)}")
 
@@ -344,7 +344,7 @@ class AliceClient(QMainWindow):
             dialog.setLayout(layout)
             dialog.exec()
             
-            self.received_box.append(f"✅ Image displayed: {filename}") # display the name of the file and the picture
+            self.received_box.append(f"Image displayed: {filename}") # display the name of the file and the picture
         except Exception as e:
             self.received_box.append(f"❌ Error displaying image: {str(e)}")
 
@@ -358,7 +358,7 @@ class AliceClient(QMainWindow):
         if dest:
             with open(dest, "wb") as f:
                 f.write(image_data) # writes the image data (decoded picture data) into a file to save
-            self.received_box.append(f"💾 Image saved to: {dest}")
+            self.received_box.append(f"Image saved to: {dest}")
 
 # Starts up the application on execution
 if __name__ == "__main__":
@@ -366,4 +366,3 @@ if __name__ == "__main__":
     win = AliceClient()
     win.show()
     sys.exit(app.exec())
-
