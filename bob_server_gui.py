@@ -155,7 +155,7 @@ class BobServer(QMainWindow):
         # Send payload
         json_to_send = json.dumps(payload)
         self.client_conn.send(json_to_send.encode()) # send Alice the encrypted payload
-        self.received_box.append(f"📎 File sent: {filename}")  # Display confirmation
+        self.received_box.append(f"File sent: {filename}")  # Display confirmation
     
     # Function for sending encrypted voice files
     def send_voice(self):
@@ -178,7 +178,7 @@ class BobServer(QMainWindow):
 
         json_to_send = json.dumps(payload)
         self.client_conn.send(json_to_send.encode())
-        self.received_box.append(f"🎤 Voice message sent: {filename}")
+        self.received_box.append(f"Voice message sent: {filename}")
 
     # Function for sending encrypted picture files
     def send_picture(self):
@@ -206,7 +206,7 @@ class BobServer(QMainWindow):
 
         json_to_send = json.dumps(payload)
         self.client_conn.send(json_to_send.encode())
-        self.received_box.append(f"🖼️ Picture sent: {filename}")
+        self.received_box.append(f"Picture sent: {filename}")
     
     # Function for recieving data
     def receive_data(self):
@@ -237,11 +237,11 @@ class BobServer(QMainWindow):
                         if msg_type == "text":
                             self.received_box.append(f"Encrypted: {actualCipher}")
                         elif msg_type == "file":
-                            self.received_box.append(f"📥 Encrypted file received: {actualCipher} (click 'Decrypt' to access)")
+                            self.received_box.append(f"Encrypted file received: {actualCipher} (click 'Decrypt' to access)")
                         elif msg_type == "voice":
-                            self.received_box.append(f"🎤 Encrypted voice file received: {actualCipher} (click 'Decrypt' to play)")
+                            self.received_box.append(f"Encrypted voice file received: {actualCipher} (click 'Decrypt' to play)")
                         elif msg_type == "picture":
-                            self.received_box.append(f"🖼️ Encrypted picture file received: {actualCipher} (click 'Decrypt' to show)")
+                            self.received_box.append(f"Encrypted picture file received: {actualCipher} (click 'Decrypt' to show)")
                         break
                     except (json.JSONDecodeError, UnicodeDecodeError):
                         # Incomplete message, wait for more data
@@ -284,7 +284,7 @@ class BobServer(QMainWindow):
                 with open(tmp_path, "wb") as f:
                     f.write(decoded)
 
-                self.received_box.append(f"✅ Voice saved to: {tmp_path}")
+                self.received_box.append(f"Voice saved to: {tmp_path}")
 
                 # Sets up audio player and play the message
                 self.audio_output = QAudioOutput()
@@ -293,13 +293,13 @@ class BobServer(QMainWindow):
                 self.media_player.setSource(QUrl.fromLocalFile(tmp_path))
                 self.media_player.play()
 
-                self.received_box.append("🔊 Playing voice message...\n")
+                self.received_box.append("Playing voice message...\n")
             except Exception as e:
                 self.received_box.append(f"❌ Error playing voice message: {str(e)}")
         elif msg_type == "picture":
             self.display_picture(decrypted, filename) # Displays the image
         else:
-            self.received_box.append(f"✅ Decrypted: {decrypted}\n") # Shows decrypted message
+            self.received_box.append(f"Decrypted: {decrypted}\n") # Shows decrypted message
 
     # Function for saving a file transferred (after decryption)
     def try_save_file(self, decrypted_str, filename):
@@ -315,7 +315,7 @@ class BobServer(QMainWindow):
                 # Save file logic
                 with open(dest, "wb") as f:
                     f.write(decoded_data)
-                self.received_box.append(f"✅ File saved: {dest}\n")
+                self.received_box.append(f"File saved: {dest}\n")
         except Exception as e:
             self.received_box.append(f"❌ Error saving file: {str(e)}")
 
@@ -349,7 +349,7 @@ class BobServer(QMainWindow):
             dialog.setLayout(layout)
             dialog.exec()
             
-            self.received_box.append(f"✅ Image displayed: {filename}")
+            self.received_box.append(f"Image displayed: {filename}")
         except Exception as e:
             self.received_box.append(f"❌ Error displaying image: {str(e)}")
 
@@ -363,10 +363,10 @@ class BobServer(QMainWindow):
         if dest:
             with open(dest, "wb") as f:
                 f.write(image_data)
-            self.received_box.append(f"💾 Image saved to: {dest}")
+            self.received_box.append(f"Image saved to: {dest}")
 
 
-# Starts up the application on execution
+# Starts up the application on run
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = BobServer()
