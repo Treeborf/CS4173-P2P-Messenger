@@ -26,6 +26,7 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
   - Automatic file saving dialog
 
 ---
+
 ## 🚀 Setup Instructions
 
 ### Requirements
@@ -69,6 +70,12 @@ python alice_client_gui.py
 - Select a matching encryption mode (either AES or DES)
 - Confirm Connection status in the chat window
 
+### 3.1 Firewall Configuration (If Connection not Working)
+- If connection fails:
+  - Temporarily disable firewalls during testing
+  - On Windows: Allow Python through Windows Defender Firewall
+  - On macOS/Linux: Ensure port 9000 is open
+
 ### 4. Sending Messages
 
 - Choose content type from dropdown:
@@ -77,6 +84,23 @@ python alice_client_gui.py
   - **Voice**: Choose any .wav file
   - **Image**: Select any image (.png, .jpeg, etc.)
 - Recipient clicks **Decrypt** to view/save content
+---
+
+## 🐛 Troubleshooting
+
+### ❌ "ModuleNotFoundError" during startup
+Run: `pip install --upgrade PyQt6 cryptography pycryptodome`
+
+### ❌ Connection Refused Errors
+1. Ensure Bob is running before Alice
+2. Verify both are using same machine (localhost)
+3. Check no other program is using port 9000:
+   ```bash
+   # Linux/macOS
+   lsof -i :9000
+   
+   # Windows
+   netstat -ano | findstr :9000
 ---
 
 ## ❓FAQ
