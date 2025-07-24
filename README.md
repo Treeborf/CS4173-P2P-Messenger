@@ -50,7 +50,7 @@ pip install PyQt6 cryptography pycryptodome
 ### 1.1. Open Terminal 
 
 - Ensure that you are in the folder containing the .py files before attempting to run these commands ('cd' for both Linux and Windows)
-- (Located within 'Final_Project/Source_Files_and_Libraries' for CS4173 Professor/TAs)
+- (Located within 'Final_Project/Source_Code' for CS4173 Professor/TAs)
 
 ### 1.2. Run Bob (server)
 
