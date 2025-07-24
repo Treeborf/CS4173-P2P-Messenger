@@ -15,14 +15,13 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
   - Voice message transmission (.wav)
   - Image sharing with in-app viewing
 - **Security Features**:
-  - Manual decryption with shared passphrase
+  - Decryption with shared passphrase
   - Per-message random salt generation
-  - PBKDF2 key derivation (100,000 iterations)
+  - PBKDF2 key derivation 
   - Mode verification to prevent cipher mismatch
 - **User Experience**:
-  - In-app media playback for voice messages
+  - Media playback for voice messages
   - Image preview with save option
-  - Visual indicators for different content types
   - Automatic file saving dialog
 
 ---
@@ -122,4 +121,5 @@ Decryption fails with a "mode mismatch" warning. The encryption algorithm is emb
 **Trevor Bean - University of Oklahoma**  
 CS-4173 Project – Secure Messaging System  
 2025
+
 
