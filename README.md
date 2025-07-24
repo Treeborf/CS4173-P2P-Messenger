@@ -30,8 +30,8 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
 ## 🚀 Setup Instructions
 
 ### Requirements
-## Windows 10+ Or Latest Linux Build
-- Python 3.10+
+- Up-to-date Windows or Linux Distro
+- Python 3.10+ (latest build recommended)
 - Dependencies:
   - `PyQt6`
   - `cryptography`
@@ -46,7 +46,12 @@ pip install PyQt6 cryptography pycryptodome
 ---
 ## ▶️ How to Use
 
-### 1. Run Bob (server)
+### 1.1. Open Terminal 
+
+- Ensure that you are in the folder containing the .py files before attempting to run these commands ('cd' for both Linux and Windows)
+- (Located within 'Final_Project/Source_Files_and_Libraries' for CS4173 Professor/TAs)
+
+### 1.2. Run Bob (server)
 
 ```bash
 python bob_server_gui.py
