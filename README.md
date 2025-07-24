@@ -30,7 +30,7 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
 ## 🚀 Setup Instructions
 
 ### Requirements
-
+## Windows 10+ Or Latest Linux Build
 - Python 3.10+
 - Dependencies:
   - `PyQt6`
