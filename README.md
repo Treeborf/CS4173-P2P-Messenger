@@ -38,6 +38,8 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
 
 ### Install Dependencies
 
+- If on a Linux system, ensure python3-pip is installed for ease of installation
+
 ```bash
 pip install PyQt6 cryptography pycryptodome 
 ```
@@ -121,5 +123,4 @@ Decryption fails with a "mode mismatch" warning. The encryption algorithm is emb
 **Trevor Bean - University of Oklahoma**  
 CS-4173 Project – Secure Messaging System  
 2025
-
 
