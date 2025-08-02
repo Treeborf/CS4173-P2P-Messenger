@@ -1,10 +1,10 @@
-# 🔐 Secure Instant Peer-to-Peer (P2P) Messenger
+# Secure Instant Peer-to-Peer (P2P) Messenger
 
 A secure peer-to-peer messaging application featuring **manual decryption** with shared passphrases and choice of encryption strength (AES-128 or DES-56). Built with Python and PyQt6, this GUI-based app showcases encrypted communication between a client and a server without transmitting raw plaintext.
 
 ---
 
-## 🛠 Features
+## Features
 
 - **Dual Encryption Support**:
   - **AES-128** (recommended for security)
@@ -26,11 +26,17 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### Requirements
-- Up-to-date Windows or Linux Distro
+- Up-to-date Windows or Linux Distro (has been tested on Windows extensively)
 - Python 3.10+ (latest build recommended)
+	- On Windows: Easiest solution is to open the "Windows Store", look up "Python 3.x.x" (3.10 or higher), and click install
+        - On Linux (if we wanted version 3.12):
+```bash
+sudo apt install python3.12 -y
+sudo apt install python3-pip
+```
 - Dependencies:
   - `PyQt6`
   - `cryptography`
@@ -38,33 +44,43 @@ A secure peer-to-peer messaging application featuring **manual decryption** with
 
 ### Install Dependencies
 
-- If on a Linux system, ensure python3-pip is installed for ease of installation
 
 ```bash
 pip install PyQt6 cryptography pycryptodome 
 ```
 
----
-## ▶️ How to Use
+- PyQt6 requires Python version 3.10+
 
-### 1.1. Open Terminal 
+---
+## How to Use
+
+### 1.1. Open 2 Terminal Windows
 
 - Ensure that you are in the folder containing the .py files before attempting to run these commands ('cd' for both Linux and Windows)
-- (Located within 'Final_Project/Source_Code' for CS4173 Professor/TAs)
-
-### 1.2. Run Bob (server)
 
 ```bash
-python bob_server_gui.py
+cd Downloads/CS4173-P2P-Messenger-main
+```
+
+- For CS4173 Professor/TAs
+
+```bash
+cd Downloads/Final_Project/Source_Code
+```
+
+### 1.2. Run Bob on first terminal (server)
+
+```bash
+python3 bob_server_gui.py
 ```
 
 - Bob listens on port 9000
 - Choose encryption type (AES or DES) and input the shared password
 
-### 2. Run Alice (client)
+### 2. Run Alice on second terminal (client)
 
 ```bash
-python alice_client_gui.py
+python3 alice_client_gui.py
 ```
 
 - Connects to Bob on localhost:9000
@@ -92,7 +108,7 @@ python alice_client_gui.py
 - Recipient clicks **Decrypt** to view/save content
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### ❌ "ModuleNotFoundError" during startup
 Run: `pip install --upgrade PyQt6 cryptography pycryptodome`
@@ -109,7 +125,7 @@ Run: `pip install --upgrade PyQt6 cryptography pycryptodome`
    netstat -ano | findstr :9000
 ---
 
-## ❓FAQ
+## FAQ
 
 ### ❌ What happens if Alice and Bob use different passwords?
 The message cannot be decrypted — the app displays a decryption error.
@@ -118,7 +134,7 @@ The message cannot be decrypted — the app displays a decryption error.
 Decryption fails with a "mode mismatch" warning. The encryption algorithm is embedded in the message metadata.
 
 ---
-## 🧑‍💻 Author
+## Author
 
 **Trevor Bean - University of Oklahoma**  
 CS-4173 Project – Secure Messaging System  
